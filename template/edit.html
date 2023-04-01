@@ -1,0 +1,47 @@
+<html>
+	<body>
+		<form method ='post' action = '{% url 'edit_action' %}'>
+		{% csrf_token %}
+		<table>
+			{% for i in user %}
+			<input type ='hidden' name='id' value='{{i.id}}'>
+			<tr>
+			<td>NAME</td>
+			<td><input type = 'text' name='name' value='{{i.Name}}'></td>
+			</tr>
+			<tr>
+			<td>ADDRESS</td>
+			<td><textarea name='address' cols='19' rows='5'>{{i.Address}}</textarea></td>
+			</tr>
+			<tr>
+			<td>GENDER</td>
+			<td>
+			{% if i.gender == 'male' %}
+			<input type = 'radio' name='gender' value='male' checked='true'>MALE
+			<input type = 'radio' name='gender'value='female'>FEMALE
+			{% else %}
+			<input type='radio' name='gender' value='male'>Male
+			<input type='radio' name='gender' value'female' checked='true'>Female</td>
+			{% endif %}
+			</tr>
+			<tr>
+			<td>PHONE NUMBER</td>
+			<td><input type='text' name='phone' value= '{{i.Phone}}'></td>
+			</tr>
+			<tr>
+			<td>USERNAME</td>
+			<td><input type='text' name='username' value='{{i.Username}}'></td>
+			</tr>
+			<tr>
+			<td>PASSWORD</td>
+			<td><input type = 'password' name='password' value='{{i.Password}}'></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><input type ='submit' value='update'></td>
+			</tr>
+			{% endfor %}
+		</table>
+		</form>
+	</body>
+</html>

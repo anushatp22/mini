@@ -1,0 +1,18 @@
+its home
+<li><a href = '{% url 'view_user' %}'>Viewuser</a></li>
+<li><a href = '{% url 'image_upload' %}'>Image Upload</a></li>
+<li><a href = '{% url 'dropdownbinding' %}'>Drop Down Binding</a></li>
+<li><a href = '{% url 'hide' %}'>Hide</a></li>
+<li><a href = '{% url 'click' %}'>Click</a></li>
+
+<html>
+	<body>
+		{% if messages %}
+			{% for msg in messages %}
+				<script>
+					alert('{{msg}}')
+				</script>
+			{% endfor %}
+		{% endif %}
+	</body>
+</html>
